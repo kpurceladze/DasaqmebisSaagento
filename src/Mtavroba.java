@@ -1,26 +1,26 @@
 public class Mtavroba {
-  private static double biujeti;
-  private Adamianebi adamiani;
-  private boolean mravalshvilianiOjaxia;
-  Mtavroba(double biujeti, Adamianebi adamiani, boolean mravalshvilianiOjaxia) {
-    this.adamiani = adamiani;
-    this.mravalshvilianiOjaxia = mravalshvilianiOjaxia;
-    if (mravalshvilianiOjaxia) {
-     this.biujeti =this.biujeti + adamiani.getXelfasi()*0.1;
-    }
-     this.biujeti = this.biujeti + adamiani.getXelfasi()*0.2;
+  private static double biujeti = 1000000;
+  final private static double procentiMravalshvilianebistvis = 10;
+  final private static double procentiStandartuli = 20;
 
-  }
 
   public static double getBiujeti() {
     return biujeti;
   }
 
-  public Adamianebi getAdamiani() {
-    return adamiani;
+  public static double getProcentiMravalshvilianebistvis() {
+    return procentiMravalshvilianebistvis;
   }
 
-  public boolean isMravalshvilianiOjaxia() {
-    return mravalshvilianiOjaxia;
+  public static double getProcentiStandartuli() {
+    return procentiStandartuli;
   }
+
+  public static void gazardeBiujeti(double ramdenitGavzardo) {
+    Mtavroba.biujeti += ramdenitGavzardo;
+  }
+
+  public  static void biujetisShevseba(Adamianebi adamiani) {
+
+}
 }

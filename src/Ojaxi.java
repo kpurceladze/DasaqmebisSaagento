@@ -1,47 +1,58 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Ojaxi {
 
-  private ArrayList<Adamianebi> wevrebi;
-  private boolean mravalshvilianiOjaxia ;
+  private ArrayList<Adamianebi> wevrebi = new ArrayList<>();
+  double procenti;
 
-  public Ojaxi(ArrayList<Adamianebi> wevrebi, boolean mravalshvilianiOjaxia) {
-    this.wevrebi = wevrebi;
-    this.mravalshvilianiOjaxia = mravalshvilianiOjaxia;
-
-   if (mravalshvilianiOjaxia) {
-
-     System.out.println("მრავალშვილიანი ოჯახია");
-     for (int i = 0; i < wevrebi.size(); i++) {
-
-
-       System.out.println(wevrebi.get(i).getSaxeli() + " " + wevrebi.size());
-     }
-   }
-   else {
-    System.out.println(wevrebi.get(0).getSaxeli() + " " + wevrebi.size());
-
-   }
+  public ArrayList<Adamianebi> getWevrebi() {
+    return wevrebi;
   }
 
 
+  public Ojaxi(Adamianebi... wevrebi) {
 
+    this.wevrebi = new ArrayList<>(Arrays.asList(wevrebi));
 
+    int ojaxisArasrulwlovaniWevrebisRaodenoba = 0;
 
-//  public static void ragaca(Ojaxi[] ojaxebi) {
-//    //int k = 0;
-//    for (Ojaxi ojaxi : ojaxebi) {
-//      System.out.println("---------------------------");
+    for (int i = 0; i < wevrebi.length; i++) {
+      if (getWevrebi().get(i).getAsaki() < 21) {
+        ojaxisArasrulwlovaniWevrebisRaodenoba++;
+      }
+    }
+
+//    while (true) {
+//      var counter = 0;
 //
-//      for (int j = 0; j < ojaxi.wevrebi.size(); j++) {
-//        if (ojaxi.wevrebi.get(j).getAsaki() < 21) {
-//         // k++;
+//      // რამე ალგორითმი
+//      // counter-ის მნიშვნელობა შეცვალე
 //
-//        }
-//
-//         // System.out.println(ojaxi.wevrebi.get(j).getSaxeli()+" "+k);
-//
+//      if (counter == 10) {
+//        break;
 //      }
 //    }
-//  }
+
+//    do {
+//      // აგლორითმი
+//    } while (true);
+//
+
+//    if (ojaxisArasrulwlovaniWevrebisRaodenoba > 2) {
+//      procenti = Mtavroba.getProcentiMravalshvilianebistvis();
+//    } else {
+//      procenti = Mtavroba.getProcentiStandartuli();
+//    }
+
+    // ternary operator
+    procenti = ojaxisArasrulwlovaniWevrebisRaodenoba > 2 ? Mtavroba.getProcentiMravalshvilianebistvis() : Mtavroba.getProcentiStandartuli();
+
+    for (int i = 0; i < wevrebi.length; i++) {
+      getWevrebi().get(i).gadaricxvaBiujetshi(procenti);
+      System.out.println(getWevrebi().get(i).getSaxeli() + " " + getWevrebi().get(i).getGvari() + " " + getWevrebi().get(i).getXelfasi());
+    }
+
+  }
+
 }

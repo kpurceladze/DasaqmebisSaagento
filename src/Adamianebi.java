@@ -11,7 +11,6 @@ public class Adamianebi {
   private static double minimalurixelfasebikompaniidan = 0;
   private static boolean dasaqmebulia;
   private static ArrayList<Adamianebi> adamianebi = new ArrayList<>();
-  private static double biujetshiGadaricxva;
 
   public String getSaxeli() {
     return saxeli;
@@ -59,11 +58,19 @@ public class Adamianebi {
     return sum / counter;
   }
 
+  public void gadaricxvaBiujetshi(double procenti) {
+    var sheamcireXelfasi = procenti * xelfasi/ 100;
+
+    xelfasi -= sheamcireXelfasi;
+    Mtavroba.gazardeBiujeti(sheamcireXelfasi);
+  }
+
   Adamianebi(String gvari, String saxeli, int asaki, boolean dasaqmebulia, Kompania kompania, double xelfasi) {
     this.saxeli = saxeli;
     this.gvari = gvari;
     this.asaki = asaki;
     this.xelfasi = xelfasi;
+
     if (!(dasaqmebulia)) {
 
       this.kompania = new Kompania("", "", 0);
